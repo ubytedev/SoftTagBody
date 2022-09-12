@@ -9,24 +9,24 @@ Experimental SoftTagBody UPROPERTY metadata specifier that works with Typed Tags
 Example:
 ```cpp
 USTRUCT()
-struct FExampleCrowdActivityStrategyTagSet
+struct FExampleTagSet
 {
 	GENERATED_BODY()
 	
 	// This constructor attempts to fill all soft tag body properties with its corresponding tag value.
-	FCommonActivityStrategyCrowdTagSet() { TSoftTagBodyStatics<TRemovePointer<decltype(this)>::Type>::InitFields<FCrowdActivityStrategyTag>(this); }
+	FCommonActivityStrategyCrowdTagSet() { TSoftTagBodyStatics<TRemovePointer<decltype(this)>::Type>::InitFields<FAgentGameplayEventTag>(this); }
 	
 	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true, TagDevComment = "Tag dev comment that's used when this property gets registered as native gameplay tag. "))
-	FCrowdActivityStrategyTag Combat;
+	FAgentGameplayEventTag Combat;
 	
 	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FCrowdActivityStrategyTag Combat_Endurance;
+	FAgentGameplayEventTag Combat_Endurance;
 
 	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FCrowdActivityStrategyTag Combat_Endurance_Hardened;
+	FAgentGameplayEventTag Combat_Endurance_Hardened;
 
 	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FCrowdActivityStrategyTag Combat_Endurance_Squishy;
+	FAgentGameplayEventTag Combat_Endurance_Squishy;
 };
 
 // As long as one instance remains, the tags remain registered with the gameplay tags module.
@@ -37,18 +37,18 @@ struct FCommonActivityStrategyTagRegistration : TSharedFromThis<FCommonActivityS
 ```
 
 ```cpp
-USTRUCT(Meta = (Categories = "CrowdActivityCognition"))
-struct FCrowdActivityCognitionTag : public FGameplayTag
+USTRUCT()
+struct FAgentTag : public FGameplayTag
 {
 	GENERATED_BODY()
-	END_TYPED_TAG_DECL(FCrowdActivityCognitionTag, TEXT(""))
+	END_TYPED_TAG_DECL(FCrowdActivityCognitionTag, TEXT("Agent"))
 };
 
-USTRUCT(Meta = (Categories = "CrowdActivityStrategy"))
-struct FCrowdActivityStrategyTag : public FCrowdActivityCognitionTag
+USTRUCT()
+struct FAgentGameplayEventTag : public FCrowdActivityCognitionTag
 {
 	GENERATED_BODY()
-	END_TYPED_TAG_DECL(FCrowdActivityStrategyTag, TEXT("CrowdActivityStrategy"))
+	END_TYPED_TAG_DECL(FCrowdActivityStrategyTag, TEXT("GameplayEvent"))
 };
 ```
 
