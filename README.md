@@ -1,4 +1,4 @@
-# Soft Tag Body
+# SoftTagBody.uplugin
 Experimental SoftTagBody UPROPERTY metadata specifier that works with Typed Tags.
 
 Example:
