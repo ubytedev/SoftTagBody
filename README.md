@@ -29,11 +29,9 @@ struct FCommonActivityStrategyTagRegistration : TSharedFromThis<FCommonActivityS
 {
 	const TSoftTagBodyFieldRegistration<FExampleTagSet, FAgentGameplayEventTag> Registration;
 };
-```
 
-Using the following typed gameplay tags inheritance hierarchy:
+// Using the following typed gameplay tags inheritance hierarchy:
 
-```cpp
 USTRUCT()
 struct FAgentTag : public FGameplayTag
 {
