@@ -4,7 +4,7 @@ Experimental SoftTagBody UPROPERTY metadata specifier that works with Typed Tags
 Example:
 ```cpp
 USTRUCT()
-struct FCommonActivityStrategyCrowdTagSet
+struct FExampleCrowdActivityStrategyTagSet
 {
 	GENERATED_BODY()
 	
@@ -22,29 +22,26 @@ struct FCommonActivityStrategyCrowdTagSet
 
 	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
 	FCrowdActivityStrategyTag Combat_Endurance_Squishy;
-
-	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FCrowdActivityStrategyTag Detection;
-
-	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FCrowdActivityStrategyTag Detection_Stance;
-
-	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FCrowdActivityStrategyTag Detection_Stance_Proactive;
-
-	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FCrowdActivityStrategyTag Detection_Stance_Reactive;
-
-	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FCrowdActivityStrategyTag Detection_Attitude;
-
-	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FCrowdActivityStrategyTag Detection_Attitude_Aggressive;
-
-	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FCrowdActivityStrategyTag Detection_Attitude_Frightened;
 };
 ```
+
+```cpp
+USTRUCT(Meta = (Categories = "CrowdActivityCognition"))
+struct FCrowdActivityCognitionTag : public FGameplayTag
+{
+	GENERATED_BODY()
+	END_TYPED_TAG_DECL(FCrowdActivityCognitionTag, TEXT(""))
+};
+
+USTRUCT(Meta = (Categories = "CrowdActivityStrategy"))
+struct FCrowdActivityStrategyTag : public FCrowdActivityCognitionTag
+{
+	GENERATED_BODY()
+	END_TYPED_TAG_DECL(FCrowdActivityStrategyTag, TEXT("CrowdActivityStrategy"))
+};
+```
+
+
 
 Tag registration utility for FGameplayTag (derived) field members that:
 - Represent a gameplay tag string. E.g: Combat_Strategy_XYZ
