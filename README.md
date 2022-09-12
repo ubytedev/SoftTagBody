@@ -1,13 +1,7 @@
 # SoftTagBody.uplugin (Experimental)
 Experimental SoftTagBody UPROPERTY metadata specifier that works with Typed gameplay tags.
-Introduces `TSoftTagBodyFieldRegistration` and `TSoftTagBodyStatics`.
 
-## Recommended optional plugins (used in the example below)
-| Plugin | Reason |
-| :----- | :----- |
-| TypedTagStaticImpl.uplugin | Introduces the `END_TYPED_TAG_DECL` macro, which is used to declare typed gameplay tags. |
-
-Example:
+## Example:
 ```cpp
 USTRUCT()
 struct FExampleTagSet
@@ -54,14 +48,20 @@ struct FAgentGameplayEventTag : public FCrowdActivityCognitionTag
 	END_TYPED_TAG_DECL(FCrowdActivityStrategyTag, TEXT("GameplayEvent"))
 };
 ```
+## Recommended optional plugins (used in the example above)
+| Plugin | Reason |
+| :----- | :----- |
+| TypedTagStaticImpl.uplugin | Introduces the `END_TYPED_TAG_DECL` macro, which is used to declare typed gameplay tags. |
 
+# About the plugin
 
-
+## `TSoftTagBodyFieldRegistration`
 Tag registration utility for FGameplayTag (derived) field members that:
 - Represent a gameplay tag string. E.g: Combat_Strategy_XYZ
 - Have UPROPERTY(Meta = (SoftTagBody = true)) without any Edit specifier
 
-`TSoftTagBodyFieldRegistration` struct registers/unregisters the property's FName at construction/destruction with the GameplayTagsManager.
+This struct registers/unregisters the property's FName at construction/destruction with the GameplayTagsManager.
+
 @note: Tag deregistration behavior is currently not available in GameplayTagsManager, as of now.
 
 Make sure you only construct an instance:
@@ -74,3 +74,9 @@ If your module is responsible for creating an instance, make sure:
 After `UGameplayTagsManager::DoneAddingNativeTags` is called, we cannot add any native tags no more.
 That is called during `FCoreDelegates::OnPostEngineInit`.
 
+## `TSoftTagBodyStatics`
+
+Find all FGameplayTag (derived) field members that have UPROPERTY(Meta = (SoftTagBody = true)) of a struct instance,
+and initialize them with the tag it itself presumably represent.
+@note Since the property should be uneditable in the editor, properties with any Edit specifier are not supported.
+If the tag was not registered with the GameplayTagsManager, the field will simply be left uninitialized.
