@@ -31,21 +31,21 @@ struct FCommonActivityStrategyTagRegistration : TSharedFromThis<FCommonActivityS
 };
 ```
 
-Using the following typed gameplay tags:
+Using the following typed gameplay tags inheritance hierarchy:
 
 ```cpp
 USTRUCT()
 struct FAgentTag : public FGameplayTag
 {
 	GENERATED_BODY()
-	END_TYPED_TAG_DECL(FCrowdActivityCognitionTag, TEXT("Agent"))
+	END_TYPED_TAG_DECL(FAgentTag, TEXT("Agent"))
 };
 
 USTRUCT()
-struct FAgentGameplayEventTag : public FCrowdActivityCognitionTag
+struct FAgentGameplayEventTag : public FAgentTag
 {
 	GENERATED_BODY()
-	END_TYPED_TAG_DECL(FCrowdActivityStrategyTag, TEXT("GameplayEvent"))
+	END_TYPED_TAG_DECL(FAgentGameplayEventTag, TEXT("GameplayEvent"))
 };
 ```
 ## Recommended optional plugins (used in the example above)
