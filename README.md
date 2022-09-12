@@ -1,6 +1,8 @@
 # SoftTagBody.uplugin
 Experimental SoftTagBody UPROPERTY metadata specifier that works with Typed Tags.
 
+Introduces `TSoftTagBodyFieldRegistration` and `TSoftTagBodyStatics`.
+
 ## Recommended optional plugins (used in the example below)
 | Plugin | Reason |
 | :----- | :----- |
