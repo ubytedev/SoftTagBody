@@ -1,6 +1,9 @@
 # SoftTagBody.uplugin
 Experimental SoftTagBody UPROPERTY metadata specifier that works with Typed Tags.
 
+## Recommended optional plugins (used in the example below)
+- TypedTagStaticImpl.uplugin
+
 Example:
 ```cpp
 USTRUCT()
