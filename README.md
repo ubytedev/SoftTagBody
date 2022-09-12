@@ -53,4 +53,4 @@ struct FAgentGameplayEventTag : public FAgentTag
 
 # Long-term vision
 
-UHT reflection instead of manually typing it out in the constructor.
+Full UHT reflection instead of manually typing it out in the constructor.
