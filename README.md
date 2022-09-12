@@ -25,7 +25,7 @@ struct FExampleTagSet
 };
 
 // As long as one instance remains, the tags remain registered with the gameplay tags module.
-struct FCommonActivityStrategyTagRegistration : TSharedFromThis<FCommonActivityStrategyTagRegistration>
+struct FExampleTagRegistration : TSharedFromThis<FExampleTagRegistration>
 {
     const TSoftTagBodyFieldRegistration<FExampleTagSet, FAgentGameplayEventTag> Registration;
 };
