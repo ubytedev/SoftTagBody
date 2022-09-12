@@ -2,10 +2,8 @@
 Experimental SoftTagBody UPROPERTY metadata specifier that works with Typed Tags.
 
 ## Recommended optional plugins (used in the example below)
-- TypedTagStaticImpl.uplugin
-
 | Plugin | Reason |
-| ------ | ------ |
+| :----- | :----- |
 | TypedTagStaticImpl.uplugin | Introduces the `END_TYPED_TAG_DECL` macro, which is used to declare typed gameplay tags. |
 
 Example:
