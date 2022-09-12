@@ -50,3 +50,4 @@ struct FAgentGameplayEventTag : public FAgentTag
 | Plugin | Reason |
 | :----- | :----- |
 | TypedTagStaticImpl.uplugin | Introduces the `END_TYPED_TAG_DECL` macro, which is used to declare typed gameplay tags. |
+
