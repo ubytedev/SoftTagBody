@@ -1,5 +1,5 @@
 # SoftTagBody.uplugin (Experimental)
-Experimental SoftTagBody UPROPERTY metadata specifier that works with Typed Tags.
+Experimental SoftTagBody UPROPERTY metadata specifier that works with Typed gameplay tags.
 Introduces `TSoftTagBodyFieldRegistration` and `TSoftTagBodyStatics`.
 
 ## Recommended optional plugins (used in the example below)
@@ -18,16 +18,16 @@ struct FExampleTagSet
 	FCommonActivityStrategyCrowdTagSet() { TSoftTagBodyStatics<TRemovePointer<decltype(this)>::Type>::InitFields<FAgentGameplayEventTag>(this); }
 	
 	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true, TagDevComment = "Tag dev comment that's used when this property gets registered as native gameplay tag. "))
-	FAgentGameplayEventTag Combat;
+	FAgentGameplayEventTag Combat; // Agent.GameplayEvent.Combat
 	
 	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FAgentGameplayEventTag Combat_Endurance;
+	FAgentGameplayEventTag Combat_Endurance; // Agent.GameplayEvent.Combat.Endurance
 
 	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FAgentGameplayEventTag Combat_Endurance_Hardened;
+	FAgentGameplayEventTag Combat_Endurance_Hardened; // Agent.GameplayEvent.Combat.Hardened
 
 	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
-	FAgentGameplayEventTag Combat_Endurance_Squishy;
+	FAgentGameplayEventTag Combat_Endurance_Squishy; // Agent.GameplayEvent.Combat.Squishy
 };
 
 // As long as one instance remains, the tags remain registered with the gameplay tags module.
@@ -36,6 +36,8 @@ struct FCommonActivityStrategyTagRegistration : TSharedFromThis<FCommonActivityS
 	const TSoftTagBodyFieldRegistration<FExampleCrowdActivityStrategyTagSet, FCrowdActivityStrategyTag> CrowdRegistration;
 };
 ```
+
+Using the following typed gameplay tags:
 
 ```cpp
 USTRUCT()
