@@ -23,6 +23,12 @@ struct FExampleCrowdActivityStrategyTagSet
 	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
 	FCrowdActivityStrategyTag Combat_Endurance_Squishy;
 };
+
+// As long as one instance remains, the tags remain registered with the gameplay tags module.
+struct FCommonActivityStrategyTagRegistration : TSharedFromThis<FCommonActivityStrategyTagRegistration>
+{
+	const TSoftTagBodyFieldRegistration<FExampleCrowdActivityStrategyTagSet, FCrowdActivityStrategyTag> CrowdRegistration;
+};
 ```
 
 ```cpp
