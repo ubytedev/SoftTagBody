@@ -1,2 +1,2 @@
-# soft-tag-body
+# Soft Tag Body
 Experimental SoftTagBody UPROPERTY metadata specifier
