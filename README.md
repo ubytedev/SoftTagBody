@@ -9,7 +9,7 @@ struct FExampleTagSet
 	GENERATED_BODY()
 	
 	// This constructor attempts to fill all soft tag body properties with its corresponding tag value.
-	FCommonActivityStrategyCrowdTagSet() { TSoftTagBodyStatics<TRemovePointer<decltype(this)>::Type>::InitFields<FAgentGameplayEventTag>(this); }
+	FExampleTagSet() { TSoftTagBodyStatics<TRemovePointer<decltype(this)>::Type>::InitFields<FAgentGameplayEventTag>(this); }
 	
 	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true, TagDevComment = "Tag dev comment that's used when this property gets registered as native gameplay tag. "))
 	FAgentGameplayEventTag Combat; // Agent.GameplayEvent.Combat
