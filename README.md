@@ -32,19 +32,22 @@ struct FExampleTagRegistration : TSharedFromThis<FExampleTagRegistration>
 
 // Using the following typed gameplay tags inheritance hierarchy:
 
-USTRUCT()
+// The Categories metadata specifier is only responsible for filtering the GameplayTag in the editor.
+USTRUCT(Meta = (Categories = "Agent"))
 struct FAgentTag : public FGameplayTag
 {
     GENERATED_BODY()
     END_TYPED_TAG_DECL(FAgentTag, TEXT("Agent"))
 };
 
-USTRUCT()
+// The Categories metadata specifier is only responsible for filtering the GameplayTag in the editor.
+USTRUCT(Meta = (Categories = "Agent.GameplayEvent"))
 struct FAgentGameplayEventTag : public FAgentTag
 {
     GENERATED_BODY()
-    END_TYPED_TAG_DECL(FAgentGameplayEventTag, TEXT("GameplayEvent"))
+    END_TYPED_TAG_DECL(FAgentGameplayEventTag, TEXT("Agent.GameplayEvent"))
 };
+
 ```
 ## Recommended optional plugins (used in the example above)
 | Plugin | Reason |
