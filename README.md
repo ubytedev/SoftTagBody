@@ -3,6 +3,7 @@ Experimental SoftTagBody UPROPERTY metadata specifier that works with Typed game
 
 ## Example:
 ```cpp
+/** Since this is CDO-based, use GetDefault<FExampleTagSet>() to read fields */
 USTRUCT()
 struct FExampleTagSet
 {
