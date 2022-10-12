@@ -25,7 +25,7 @@ namespace SoftTagBodyPrivate
 			{
 				// Remove the unnecessary prefix if present
 				const FString PotentialPrefix = FGameplayTagType::GetRootTag().ToString() + TEXT(".");
-				bool bRemoved = TagBody.RemoveFromStart(PotentialPrefix);
+				TagBody.RemoveFromStart(PotentialPrefix);
 			}
 			
 			return FGameplayTagType::AddNativeTag(TagBody, TagDevComment);
@@ -104,7 +104,6 @@ private:
 				|| !Property->GetBoolMetaData(TEXT("SoftTagBody"))
 				|| !Property->HasAnyPropertyFlags(CPF_EditConst))
 			{
-				UE_LOG(LogTemp, Warning, TEXT("RegisterGameplayTagType continuing %s - %s"), *FGameplayTagType::StaticStruct()->GetName(), *Property->Struct->GetName());
 				continue;
 			}
 			
