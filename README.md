@@ -22,6 +22,12 @@ struct FExampleTagSet
 
     UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
     FAgentGameplayEventTag Combat_Endurance_Squishy; // Agent.GameplayEvent.Combat.Squishy
+	
+	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
+	FAgentTag Mobility_Fast; // Agent.Mobility.Fast
+	
+	UPROPERTY(VisibleAnywhere, Meta = (SoftTagBody = true))
+	FAgentTag Mobility_Slow; // Agent.Mobility.Slow
 };
 
 // As long as one instance remains, the tags remain registered with the gameplay tags module.
