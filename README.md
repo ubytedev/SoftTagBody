@@ -35,7 +35,7 @@ struct FExampleTagSet
 struct FExampleTagRegistration : TSharedFromThis<FExampleTagRegistration>
 {
     const TSoftTagBodyFieldRegistration<FExampleTagSet, FAgentGameplayEventTag> Registration1;
-	const TSoftTagBodyFieldRegistration<FExampleTagSet, FAgentTag> Registration2;
+    const TSoftTagBodyFieldRegistration<FExampleTagSet, FAgentTag> Registration2;
 };
 
 // Using the following typed gameplay tags inheritance hierarchy:
