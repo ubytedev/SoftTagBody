@@ -64,4 +64,4 @@ struct FAgentGameplayEventTag : public FAgentTag
 
 # Long-term vision
 
-Full UHT reflection instead of manually typing it out in the constructor.
+Full UHT reflection instead of manually typing the initialization out in the constructor.
