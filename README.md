@@ -1,6 +1,6 @@
 # SoftTagBody.uplugin (Experimental)
 Experimental SoftTagBody UPROPERTY metadata specifier that works with Typed gameplay tags.
-<a href="https://ubyte.dev/web-stories/what-are-typed-gameplay-tags/">What are 'typed' gameplay tags?</a>
+
 ## Example:
 ```cpp
 /** Since this is CDO-based, use GetDefault<FExampleTagSet>() to read fields */
