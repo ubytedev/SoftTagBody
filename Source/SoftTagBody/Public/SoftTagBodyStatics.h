@@ -1,4 +1,4 @@
-﻿// Copyright ubyte digital. All Rights Reserved.
+﻿// Copyright ubyte digital. All Rights Reserved. https://ubyte.dev
 
 #pragma once
 
